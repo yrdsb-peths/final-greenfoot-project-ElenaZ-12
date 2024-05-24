@@ -28,8 +28,11 @@ public class MyWorld extends World
     {
         Cat cat = new Cat();
         addObject(cat,200,310);
+
+        Label title = new Label("Paws and Drink!", 80);
+        addObject(title,300,70);
         
-        Label label = new Label("Paws and Drink!", 80);
-        addObject(label,300,70);
+        Label start = new Label("Press <space> to start!", 40);
+        addObject(start,300,140);
     }
 }
