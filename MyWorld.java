@@ -28,5 +28,8 @@ public class MyWorld extends World
     {
         Cat cat = new Cat();
         addObject(cat,200,310);
+        
+        Label label = new Label("Paws and Drink!", 80);
+        addObject(label,300,70);
     }
 }
