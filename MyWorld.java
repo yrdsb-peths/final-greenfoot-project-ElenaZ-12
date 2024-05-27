@@ -21,6 +21,19 @@ public class MyWorld extends World
     }
     
     /**
+     * The main world act loop
+     */
+    public void act()
+    {
+        // Start the game if user presses space bar
+        if (Greenfoot.isKeyDown("space"))
+        {
+            Game currentWorld = new Game();
+            Greenfoot.setWorld(currentWorld);
+        }
+    }
+    
+    /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
      */
