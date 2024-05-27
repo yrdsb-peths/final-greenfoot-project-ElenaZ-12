@@ -23,9 +23,10 @@ public class Customer extends Actor
         {
             move();
             Game world = (Game) getWorld();
-            if(getX()>world.getWidth()+10)
+            if(getX()>world.getWidth()+300)
             {
                 world.removeObject(this);
+                world.newCustomer();
             }
         }
     }
