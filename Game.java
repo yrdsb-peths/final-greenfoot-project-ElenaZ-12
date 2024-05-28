@@ -8,7 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Game extends World
 {
-
+    Milk milk;
+    Water water;
+    Drink drink;
     /**
      * Constructor for objects of class Game.
      * 
@@ -25,6 +27,14 @@ public class Game extends World
         
         Milk milk = new Milk();
         addObject(milk, 100, 300);
+        
+        Drink drink = new Drink();
+        addObject(drink, 300, 200);
+    }
+    
+    public void act()
+    {
+        
     }
     
     public void newCustomer()
