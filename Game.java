@@ -11,6 +11,8 @@ public class Game extends World
     Milk milk;
     Water water;
     Drink drink;
+    String[] ingredients = new String [3];
+    boolean addedBase = false;
     /**
      * Constructor for objects of class Game.
      * 
@@ -34,7 +36,20 @@ public class Game extends World
     
     public void act()
     {
-        
+        if (!addedBase)
+        {
+            if (milk.getClicked())
+            {
+                ingredients[0] = "milk";
+                drink.setImage(new GreenfootImage("images/bread.png"));
+            }
+            else if(water.getClicked())
+            {
+                ingredients[0] = "water";
+                drink.setImage(new GreenfootImage("images/bread.png"));
+            }
+            addedBase = true;
+        }
     }
     
     public void newCustomer()
