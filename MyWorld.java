@@ -48,4 +48,6 @@ public class MyWorld extends World
         Label start = new Label("Press <space> to start!", 40);
         addObject(start,300,140);
     }
+    
+    //do collisions and checks in world
 }
