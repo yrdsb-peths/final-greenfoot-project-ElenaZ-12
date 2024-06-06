@@ -52,4 +52,5 @@ public class MyWorld extends World
     //do collisions and checks in world
     //I'll add proper images later, finish logic first
     //Have to make the story scenes later too
+    //I'LL WORK ON THIS AT HOME TONIGHT I SWEARRRR
 }
