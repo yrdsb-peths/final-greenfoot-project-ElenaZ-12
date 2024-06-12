@@ -28,7 +28,7 @@ public class MyWorld extends World
         // Start the game if user presses space bar
         if (Greenfoot.isKeyDown("space"))
         {
-            Game currentWorld = new Game();
+            Intro currentWorld = new Intro();
             Greenfoot.setWorld(currentWorld);
         }
     }
@@ -48,12 +48,4 @@ public class MyWorld extends World
         Label start = new Label("Press <space> to start!", 40);
         addObject(start,300,140);
     }
-    
-    //do collisions and checks in world
-    //I'll add proper images later, finish logic first
-    //Have to make the story scenes later too
-    //I'LL WORK ON THIS AT HOME TONIGHT I SWEARRRR
-    //I lied I'll do it tmr HELP
-    //I lied again I'LL DO IT TONIGHT
-    //ok ok I'll draw tonight and work it on it pls I can't die this early
 }
