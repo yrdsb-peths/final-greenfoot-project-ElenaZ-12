@@ -15,7 +15,10 @@ public class Drink extends Actor
     public void act()
     {
         addBase();
-        //addCondiment();
+        if (addedBase)
+        {
+            addCondiment();
+        }
     }
     
     public void addBase()
@@ -29,13 +32,13 @@ public class Drink extends Actor
             {
                 ingredients[0] = "milk";
                 setImage("images/bread.png");
-                //addedBase = true;
+                addedBase = true;
             }
             else if (Greenfoot.mouseClicked(water))
             {
                 ingredients[0] = "water";
                 setImage("images/apple.png");
-                //addedBase = true;
+                addedBase = true;
             }
         }
     }
@@ -53,7 +56,7 @@ public class Drink extends Actor
             if (Greenfoot.mouseClicked(fruit))
             {
                 ingredients[1] = "fruit";
-                //setImage(new GreenfootImage("images/bread.png"));
+                setImage(new GreenfootImage("images/bread.png"));
                 condimentCount--;
             }
             else if (Greenfoot.mouseClicked(chocolate))
