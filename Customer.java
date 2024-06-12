@@ -11,14 +11,34 @@ public class Customer extends Actor
     boolean satisfied = false;
     public void act()
     {
+        arrival();
+        satisfiedDrink();
+        leave();
+    }
+    
+    public void move()
+    {
+        setLocation(getX()+5, getY());
+    }
+    
+    public void arrival()
+    {
         if (getX()<=100)
         {
             move();
         }
+    }
+    
+    public void satisfiedDrink()
+    {
         if (Greenfoot.isKeyDown("t"))
         {
             satisfied = true;
         }
+    }
+    
+    public void leave()
+    {
         if (satisfied)
         {
             move();
@@ -29,10 +49,5 @@ public class Customer extends Actor
                 world.newCustomer();
             }
         }
-    }
-    
-    public void move()
-    {
-        setLocation(getX()+5, getY());
     }
 }
