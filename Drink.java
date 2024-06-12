@@ -15,7 +15,7 @@ public class Drink extends Actor
     public void act()
     {
         addBase();
-        addCondiment();
+        //addCondiment();
     }
     
     public void addBase()
@@ -28,14 +28,14 @@ public class Drink extends Actor
             if (Greenfoot.mouseClicked(milk))
             {
                 ingredients[0] = "milk";
-                setImage(new GreenfootImage("images/bread.png"));
-                addedBase = true;
+                setImage("images/bread.png");
+                //addedBase = true;
             }
             else if (Greenfoot.mouseClicked(water))
             {
                 ingredients[0] = "water";
-                setImage(new GreenfootImage("images/apple.png"));
-                addedBase = true;
+                setImage("images/apple.png");
+                //addedBase = true;
             }
         }
     }
@@ -43,5 +43,47 @@ public class Drink extends Actor
     public void addCondiment()
     {
         Game world = (Game) getWorld();
+        Object fruit = world.getFruit();
+        Object chocolate = world.getChocolate();
+        Object tea = world.getTea();
+        Object chili = world.getChili();
+        Object veggie = world.getVeggie();
+        if (!addedCondiment)
+        {
+            if (Greenfoot.mouseClicked(fruit))
+            {
+                ingredients[1] = "fruit";
+                //setImage(new GreenfootImage("images/bread.png"));
+                condimentCount--;
+            }
+            else if (Greenfoot.mouseClicked(chocolate))
+            {
+                ingredients[1] = "chocolate";
+                setImage(new GreenfootImage("images/apple.png"));
+                condimentCount--;
+            }
+            else if (Greenfoot.mouseClicked(tea))
+            {
+                ingredients[1] = "tea";
+                setImage(new GreenfootImage("images/apple.png"));
+                condimentCount--;
+            }
+            else if (Greenfoot.mouseClicked(chili))
+            {
+                ingredients[1] = "chili";
+                setImage(new GreenfootImage("images/apple.png"));
+                condimentCount--;
+            }
+            else if (Greenfoot.mouseClicked(veggie))
+            {
+                ingredients[1] = "veggie";
+                setImage(new GreenfootImage("images/apple.png"));
+                condimentCount--;
+            }
+        }
+        if (condimentCount==0)
+        {
+            addedCondiment = true;
+        }
     }
 }

@@ -11,7 +11,11 @@ public class Game extends World
     Milk milk;
     Water water;
     Drink drink;
-    
+    Fruit fruit;
+    Chocolate chocolate;
+    Tea tea;
+    Chili chili;
+    Veggie veggie;
     /**
      * Constructor for objects of class Game.
      * 
@@ -20,24 +24,39 @@ public class Game extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1, false); 
-        
+
         newCustomer();
-        
-        Water water = new Water();
+
+        water = new Water();
         addObject(water, 100, 200);
-        
-        Milk milk = new Milk();
+
+        milk = new Milk();
         addObject(milk, 100, 300);
-        
-        Drink drink = new Drink();
+
+        drink = new Drink();
         addObject(drink, 300, 200);
+        
+        fruit = new Fruit();
+        addObject(fruit,395,180);
+        
+        chocolate = new Chocolate();
+        addObject(chocolate,489,182);
+        
+        tea = new Tea();
+        addObject(tea,560,178);
+        
+        chili = new Chili();
+        addObject(chili,414,270);
+        
+        veggie = new Veggie();
+        addObject(veggie,510,267);
     }
-    
+
     public void act()
     {
-        
+
     }
-    
+
     public void newCustomer()
     {
         Customer customer = new Customer();
@@ -48,9 +67,28 @@ public class Game extends World
     {
         return milk;
     }
-    
     public Object getWater()
     {
         return water;
+    }
+    public Object getFruit()
+    {
+        return fruit;
+    }
+    public Object getChocolate()
+    {
+        return chocolate;
+    }
+    public Object getTea()
+    {
+        return tea;
+    }
+    public Object getChili()
+    {
+        return chili;
+    }
+    public Object getVeggie()
+    {
+        return veggie;
     }
 }
