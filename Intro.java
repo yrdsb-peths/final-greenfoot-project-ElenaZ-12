@@ -19,12 +19,15 @@ public class Intro extends World
         super(600, 400, 1); 
         
         Label story1 = new Label("You¡¯re suffering from kitty cancer,\nmake 150 dollars by the end of the \nweek to pay for your medical fee!", textSize);
-        addObject(story1,300,180);
+        addObject(story1,300,70);
+        
+        Cancer cancer = new Cancer();
+        addObject(cancer,300,270);
     }
     
     public void act()
     {
-        if (Greenfoot.isKeyDown("n"))
+        if (Greenfoot.mouseClicked(null))
         {
             Game currentWorld = new Game();
             Greenfoot.setWorld(currentWorld);
