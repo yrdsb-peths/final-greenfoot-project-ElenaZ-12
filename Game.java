@@ -17,6 +17,7 @@ public class Game extends World
     Chili chili;
     Veggie veggie;
     Customer customer;
+    Label instructions;
     /**
      * Constructor for objects of class Game.
      * 
@@ -51,11 +52,17 @@ public class Game extends World
 
         veggie = new Veggie();
         addObject(veggie,485,345);
+        
+        instructions = new Label("Make drinks for your customers!\nAdd 1 base and 2 condiments\nto complete a drink!", 40);
+        addObject(instructions,315,230);
     }
 
     public void act()
     {
-
+        if (Greenfoot.mouseClicked(null))
+        {
+            removeObject(instructions);
+        }
     }
 
     public void newCustomer()
@@ -68,35 +75,43 @@ public class Game extends World
     {
         return milk;
     }
+
     public Object getWater()
     {
         return water;
     }
+
     public Object getFruit()
     {
         return fruit;
     }
+
     public Object getChocolate()
     {
         return chocolate;
     }
+
     public Object getTea()
     {
         return tea;
     }
+
     public Object getChili()
     {
         return chili;
     }
+
     public Object getVeggie()
     {
         return veggie;
     }
+
     public String[] getDrink()
     {
         return drink.getDrink();
     }
-    public boolean isSatisfied()
+
+    public boolean customerSatisfied()
     {
         return customer.getSatisfied();
     }

@@ -12,6 +12,7 @@ public class Customer extends Actor
     boolean swap2 = false;
     boolean satisfied = false;
     String wantedDrink = "waterfruitstea";
+    String wantedDrink1 = "waterteafruits";
     public void act()
     {
         arrival();
@@ -46,9 +47,9 @@ public class Customer extends Actor
         Game world = (Game) getWorld();
         String[] drink = world.getDrink();
         String madeDrink = drink[0]+drink[1]+drink[2];
-        world.showText(madeDrink, 300, 200);
-        world.showText(wantedDrink, 300, 250);
-        if (wantedDrink.equals(madeDrink))
+        //world.showText(madeDrink, 300, 200);
+        //world.showText(wantedDrink, 300, 250);
+        if (wantedDrink.equals(madeDrink)||wantedDrink1.equals(madeDrink))
         {
             satisfied = true;
         }

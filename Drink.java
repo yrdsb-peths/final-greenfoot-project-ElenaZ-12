@@ -20,14 +20,11 @@ public class Drink extends Actor
         {
             addCondiment();
         }
-        if (world.isSatisfied())
+        if (world.customerSatisfied())
         {
-            ingredients = new String [3];
-            addedBase = false;
-            addedCondiment = false;
-            condimentCount = 2;
+            reset();
         }
-        world.showText(ingredients[0]+ingredients[1]+ingredients[2], 300, 150);
+        //world.showText(ingredients[0]+ingredients[1]+ingredients[2], 300, 150);
     }
     
     public void addBase()
@@ -40,13 +37,11 @@ public class Drink extends Actor
             if (Greenfoot.mouseClicked(milk))
             {
                 ingredients[0] = "milk";
-                setImage("images/bread.png");
                 addedBase = true;
             }
             else if (Greenfoot.mouseClicked(water))
             {
                 ingredients[0] = "water";
-                setImage("images/apple.png");
                 addedBase = true;
             }
         }
@@ -128,5 +123,13 @@ public class Drink extends Actor
     public String[] getDrink()
     {
         return ingredients;
+    }
+    
+    public void reset()
+    {
+        ingredients = new String [3];
+        addedBase = false;
+        addedCondiment = false;
+        condimentCount = 2;
     }
 }
