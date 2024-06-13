@@ -16,6 +16,7 @@ public class Game extends World
     Tea tea;
     Chili chili;
     Veggie veggie;
+    Customer customer;
     /**
      * Constructor for objects of class Game.
      * 
@@ -59,7 +60,7 @@ public class Game extends World
 
     public void newCustomer()
     {
-        Customer customer = new Customer();
+        customer = new Customer();
         addObject(customer,0,77);
     }
 
@@ -91,5 +92,12 @@ public class Game extends World
     {
         return veggie;
     }
-    
+    public String[] getDrink()
+    {
+        return drink.getDrink();
+    }
+    public boolean isSatisfied()
+    {
+        return customer.getSatisfied();
+    }
 }

@@ -8,7 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Customer extends Actor
 {
+    boolean swap1 = false;
+    boolean swap2 = false;
     boolean satisfied = false;
+    String wantedDrink = "waterfruitstea";
     public void act()
     {
         arrival();
@@ -27,11 +30,25 @@ public class Customer extends Actor
         {
             move();
         }
+        else
+        {
+            if (!swap1)
+            {
+                setImage ("images/blackcat2.png");
+                setLocation(301, getY());
+                swap1 = true;
+            }
+        }
     }
     
     public void satisfiedDrink()
     {
-        if (Greenfoot.isKeyDown("t"))
+        Game world = (Game) getWorld();
+        String[] drink = world.getDrink();
+        String madeDrink = drink[0]+drink[1]+drink[2];
+        world.showText(madeDrink, 300, 200);
+        world.showText(wantedDrink, 300, 250);
+        if (wantedDrink.equals(madeDrink))
         {
             satisfied = true;
         }
@@ -41,13 +58,24 @@ public class Customer extends Actor
     {
         if (satisfied)
         {
+            if (!swap2)
+            {
+                setImage ("images/blackcat3.png");
+                setLocation(221, getY());
+                swap2 = true;
+            }
             move();
             Game world = (Game) getWorld();
-            if(getX()>world.getWidth()+300)
+            if(getX()>world.getWidth()+500)
             {
                 world.removeObject(this);
                 world.newCustomer();
             }
         }
+    }
+    
+    public boolean getSatisfied()
+    {
+        return satisfied;
     }
 }

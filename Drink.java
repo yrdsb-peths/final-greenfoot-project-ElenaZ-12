@@ -14,11 +14,20 @@ public class Drink extends Actor
     int condimentCount = 2;
     public void act()
     {
+        Game world = (Game) getWorld();
         addBase();
         if (addedBase)
         {
             addCondiment();
         }
+        if (world.isSatisfied())
+        {
+            ingredients = new String [3];
+            addedBase = false;
+            addedCondiment = false;
+            condimentCount = 2;
+        }
+        world.showText(ingredients[0]+ingredients[1]+ingredients[2], 300, 150);
     }
     
     public void addBase()
@@ -53,40 +62,71 @@ public class Drink extends Actor
         Object veggie = world.getVeggie();
         if (!addedCondiment)
         {
-            if (Greenfoot.mouseClicked(fruit))
+            if (condimentCount==2)
             {
-                ingredients[1] = "fruit";
-                setImage(new GreenfootImage("images/bread.png"));
-                condimentCount--;
+                if (Greenfoot.mouseClicked(fruit))
+                {
+                    ingredients[1] = "fruits";
+                    condimentCount--;
+                }
+                else if (Greenfoot.mouseClicked(chocolate))
+                {
+                    ingredients[1] = "chocolate";
+                    condimentCount--;
+                }
+                else if (Greenfoot.mouseClicked(tea))
+                {
+                    ingredients[1] = "tea";
+                    condimentCount--;
+                }
+                else if (Greenfoot.mouseClicked(chili))
+                {
+                    ingredients[1] = "chili";
+                    condimentCount--;
+                }
+                else if (Greenfoot.mouseClicked(veggie))
+                {
+                    ingredients[1] = "veggie";
+                    condimentCount--;
+                }
             }
-            else if (Greenfoot.mouseClicked(chocolate))
+            else if (condimentCount==1)
             {
-                ingredients[1] = "chocolate";
-                setImage(new GreenfootImage("images/apple.png"));
-                condimentCount--;
-            }
-            else if (Greenfoot.mouseClicked(tea))
-            {
-                ingredients[1] = "tea";
-                setImage(new GreenfootImage("images/apple.png"));
-                condimentCount--;
-            }
-            else if (Greenfoot.mouseClicked(chili))
-            {
-                ingredients[1] = "chili";
-                setImage(new GreenfootImage("images/apple.png"));
-                condimentCount--;
-            }
-            else if (Greenfoot.mouseClicked(veggie))
-            {
-                ingredients[1] = "veggie";
-                setImage(new GreenfootImage("images/apple.png"));
-                condimentCount--;
+                if (Greenfoot.mouseClicked(fruit))
+                {
+                    ingredients[2] = "fruits";
+                    condimentCount--;
+                }
+                else if (Greenfoot.mouseClicked(chocolate))
+                {
+                    ingredients[2] = "chocolate";
+                    condimentCount--;
+                }
+                else if (Greenfoot.mouseClicked(tea))
+                {
+                    ingredients[2] = "tea";
+                    condimentCount--;
+                }
+                else if (Greenfoot.mouseClicked(chili))
+                {
+                    ingredients[2] = "chili";
+                    condimentCount--;
+                }
+                else if (Greenfoot.mouseClicked(veggie))
+                {
+                    ingredients[2] = "veggie";
+                    condimentCount--;
+                }
             }
         }
         if (condimentCount==0)
         {
             addedCondiment = true;
         }
+    }
+    
+    public String[] getDrink()
+    {
+        return ingredients;
     }
 }
