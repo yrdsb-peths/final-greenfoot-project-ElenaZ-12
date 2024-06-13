@@ -71,7 +71,7 @@ public class Drink extends Actor
                 }
                 else if (Greenfoot.mouseClicked(chocolate))
                 {
-                    ingredients[1] = "chocolate";
+                    ingredients[1] = "choco";
                     numIngredients++;
                     condimentCount--;
                 }
@@ -104,7 +104,7 @@ public class Drink extends Actor
                 }
                 else if (Greenfoot.mouseClicked(chocolate))
                 {
-                    ingredients[2] = "chocolate";
+                    ingredients[2] = "choco";
                     numIngredients++;
                     condimentCount--;
                 }
