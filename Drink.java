@@ -13,6 +13,7 @@ public class Drink extends Actor
     boolean addedCondiment = false;
     int condimentCount = 2;
     int numIngredients = 0;
+    int tries = 0;
     public void act()
     {
         Game world = (Game) getWorld();
@@ -26,6 +27,7 @@ public class Drink extends Actor
             reset();
         }
         world.showText(numIngredients+"/3",260, 340);
+        world.showText("tries "+tries, 300, 200);
         //world.showText(ingredients[0]+ingredients[1]+ingredients[2], 300, 150);
     }
     
@@ -101,30 +103,35 @@ public class Drink extends Actor
                     ingredients[2] = "fruits";
                     numIngredients++;
                     condimentCount--;
+                    tries++;
                 }
                 else if (Greenfoot.mouseClicked(chocolate))
                 {
                     ingredients[2] = "choco";
                     numIngredients++;
                     condimentCount--;
+                    tries++;
                 }
                 else if (Greenfoot.mouseClicked(tea))
                 {
                     ingredients[2] = "tea";
                     numIngredients++;
                     condimentCount--;
+                    tries++;
                 }
                 else if (Greenfoot.mouseClicked(chili))
                 {
                     ingredients[2] = "chili";
                     numIngredients++;
                     condimentCount--;
+                    tries++;
                 }
                 else if (Greenfoot.mouseClicked(veggie))
                 {
                     ingredients[2] = "veggie";
                     numIngredients++;
                     condimentCount--;
+                    tries++;
                 }
             }
         }
@@ -137,6 +144,16 @@ public class Drink extends Actor
     public String[] getDrink()
     {
         return ingredients;
+    }
+    
+    public int getTries()
+    {
+        return tries;
+    }
+    
+    public void resetTries()
+    {
+        tries = 0;
     }
     
     public void reset()

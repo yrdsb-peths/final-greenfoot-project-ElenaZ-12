@@ -13,11 +13,78 @@ public class Customer extends Actor
     boolean satisfied = false;
     boolean makeMoney = false;
     boolean changeCat = false;
+    //boolean firstTry = false;
     String wantedDrink;
     String wantedDrink1;
     String cat;
     int random = Greenfoot.getRandomNumber(5);
     public void act()
+    {
+        randomCat();
+        //firstTry = false;
+        makeMoney = false;
+        arrival();
+        satisfiedDrink();
+        leave();
+    }
+    
+    public void move()
+    {
+        setLocation(getX()+5, getY());
+    }
+    
+    public void arrival()
+    {
+        if (getX()<=200)
+        {
+            move();
+        }
+        else
+        {
+            if (!swap1)
+            {
+                setImage ("images/"+cat+"2.png");
+                setLocation(301, getY());
+                swap1 = true;
+            }
+        }
+    }
+    
+    public void satisfiedDrink()
+    {
+        Game world = (Game) getWorld();
+        String[] drink = world.getDrink();
+        String madeDrink = drink[0]+drink[1]+drink[2];
+        //world.showText(madeDrink,300,200);
+        //world.showText(wantedDrink,300,250);
+        if (wantedDrink.equals(madeDrink)||wantedDrink1.equals(madeDrink))
+        {
+            satisfied = true;
+            makeMoney = true;
+        }
+    }
+    
+    public void leave()
+    {
+        if (satisfied)
+        {
+            Game world = (Game) getWorld();
+            if (!swap2)
+            {
+                setImage ("images/"+cat+"3.png");
+                setLocation(221, getY());
+                swap2 = true;
+            }
+            move();
+            if(getX()>world.getWidth()+500)
+            {
+                world.removeObject(this);
+                world.newCustomer();
+            }
+        }
+    }
+    
+    public void randomCat()
     {
         if (random == 0)
         {
@@ -53,66 +120,6 @@ public class Customer extends Actor
         {
             setImage("images/"+cat+"1.png");
             changeCat = true;
-        }
-        makeMoney = false;
-        arrival();
-        satisfiedDrink();
-        leave();
-    }
-    
-    public void move()
-    {
-        setLocation(getX()+5, getY());
-    }
-    
-    public void arrival()
-    {
-        if (getX()<=200)
-        {
-            move();
-        }
-        else
-        {
-            if (!swap1)
-            {
-                setImage ("images/"+cat+"2.png");
-                setLocation(301, getY());
-                swap1 = true;
-            }
-        }
-    }
-    
-    public void satisfiedDrink()
-    {
-        Game world = (Game) getWorld();
-        String[] drink = world.getDrink();
-        String madeDrink = drink[0]+drink[1]+drink[2];
-        world.showText(madeDrink,300,200);
-        world.showText(wantedDrink,300,250);
-        if (wantedDrink.equals(madeDrink)||wantedDrink1.equals(madeDrink))
-        {
-            satisfied = true;
-            makeMoney = true;
-        }
-    }
-    
-    public void leave()
-    {
-        if (satisfied)
-        {
-            Game world = (Game) getWorld();
-            if (!swap2)
-            {
-                setImage ("images/"+cat+"3.png");
-                setLocation(221, getY());
-                swap2 = true;
-            }
-            move();
-            if(getX()>world.getWidth()+500)
-            {
-                world.removeObject(this);
-                world.newCustomer();
-            }
         }
     }
     

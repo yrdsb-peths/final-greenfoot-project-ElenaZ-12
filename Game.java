@@ -78,7 +78,16 @@ public class Game extends World
         }
         if (customer.getMakeMoney())
         {
-            money+=5;
+            if(drink.getTries()==1)
+            {
+                money+=10;
+                drink.resetTries();
+            }
+            else
+            {
+                money+=5;
+                drink.resetTries();
+            }
             removeObject(moneyMade);
             moneyMade = new Label ("$"+money, 40);
             addObject(moneyMade,50,30);
