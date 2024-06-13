@@ -28,28 +28,28 @@ public class Game extends World
         newCustomer();
 
         water = new Water();
-        addObject(water, 100, 200);
+        addObject(water, 70, 170);
 
         milk = new Milk();
-        addObject(milk, 100, 300);
+        addObject(milk, 70, 320);
 
         drink = new Drink();
-        addObject(drink, 300, 200);
-        
+        addObject(drink, 260, 275);
+
         fruit = new Fruit();
-        addObject(fruit,395,180);
-        
+        addObject(fruit,430,210);
+
         chocolate = new Chocolate();
-        addObject(chocolate,489,182);
-        
+        addObject(chocolate,540,210);
+
         tea = new Tea();
-        addObject(tea,560,178);
-        
+        addObject(tea,430,280);
+
         chili = new Chili();
-        addObject(chili,414,270);
-        
+        addObject(chili,540,280);
+
         veggie = new Veggie();
-        addObject(veggie,510,267);
+        addObject(veggie,485,345);
     }
 
     public void act()
@@ -60,9 +60,9 @@ public class Game extends World
     public void newCustomer()
     {
         Customer customer = new Customer();
-        addObject(customer,0,100);
+        addObject(customer,0,77);
     }
-    
+
     public Object getMilk()
     {
         return milk;
@@ -91,4 +91,5 @@ public class Game extends World
     {
         return veggie;
     }
+    
 }

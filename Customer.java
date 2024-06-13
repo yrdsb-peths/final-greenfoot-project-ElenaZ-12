@@ -23,7 +23,7 @@ public class Customer extends Actor
     
     public void arrival()
     {
-        if (getX()<=100)
+        if (getX()<=200)
         {
             move();
         }
