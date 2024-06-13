@@ -12,6 +12,7 @@ public class Drink extends Actor
     boolean addedBase = false;
     boolean addedCondiment = false;
     int condimentCount = 2;
+    int numIngredients = 0;
     public void act()
     {
         Game world = (Game) getWorld();
@@ -24,6 +25,7 @@ public class Drink extends Actor
         {
             reset();
         }
+        world.showText(numIngredients+"/3",260, 340);
         //world.showText(ingredients[0]+ingredients[1]+ingredients[2], 300, 150);
     }
     
@@ -37,11 +39,13 @@ public class Drink extends Actor
             if (Greenfoot.mouseClicked(milk))
             {
                 ingredients[0] = "milk";
+                numIngredients++;
                 addedBase = true;
             }
             else if (Greenfoot.mouseClicked(water))
             {
                 ingredients[0] = "water";
+                numIngredients++;
                 addedBase = true;
             }
         }
@@ -62,26 +66,31 @@ public class Drink extends Actor
                 if (Greenfoot.mouseClicked(fruit))
                 {
                     ingredients[1] = "fruits";
+                    numIngredients++;
                     condimentCount--;
                 }
                 else if (Greenfoot.mouseClicked(chocolate))
                 {
                     ingredients[1] = "chocolate";
+                    numIngredients++;
                     condimentCount--;
                 }
                 else if (Greenfoot.mouseClicked(tea))
                 {
                     ingredients[1] = "tea";
+                    numIngredients++;
                     condimentCount--;
                 }
                 else if (Greenfoot.mouseClicked(chili))
                 {
                     ingredients[1] = "chili";
+                    numIngredients++;
                     condimentCount--;
                 }
                 else if (Greenfoot.mouseClicked(veggie))
                 {
                     ingredients[1] = "veggie";
+                    numIngredients++;
                     condimentCount--;
                 }
             }
@@ -90,26 +99,31 @@ public class Drink extends Actor
                 if (Greenfoot.mouseClicked(fruit))
                 {
                     ingredients[2] = "fruits";
+                    numIngredients++;
                     condimentCount--;
                 }
                 else if (Greenfoot.mouseClicked(chocolate))
                 {
                     ingredients[2] = "chocolate";
+                    numIngredients++;
                     condimentCount--;
                 }
                 else if (Greenfoot.mouseClicked(tea))
                 {
                     ingredients[2] = "tea";
+                    numIngredients++;
                     condimentCount--;
                 }
                 else if (Greenfoot.mouseClicked(chili))
                 {
                     ingredients[2] = "chili";
+                    numIngredients++;
                     condimentCount--;
                 }
                 else if (Greenfoot.mouseClicked(veggie))
                 {
                     ingredients[2] = "veggie";
+                    numIngredients++;
                     condimentCount--;
                 }
             }
@@ -131,5 +145,6 @@ public class Drink extends Actor
         addedBase = false;
         addedCondiment = false;
         condimentCount = 2;
+        numIngredients = 0;
     }
 }
