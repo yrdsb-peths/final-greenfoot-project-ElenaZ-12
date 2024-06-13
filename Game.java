@@ -18,6 +18,7 @@ public class Game extends World
     Veggie veggie;
     Customer customer;
     Label instructions;
+    Trash trash;
     /**
      * Constructor for objects of class Game.
      * 
@@ -52,9 +53,12 @@ public class Game extends World
 
         veggie = new Veggie();
         addObject(veggie,485,345);
-        
+
         instructions = new Label("Make drinks for your customers!\nAdd 1 base and 2 condiments\nto complete a drink!", 40);
         addObject(instructions,315,230);
+        
+        trash = new Trash();
+        addObject(trash,565,35);
     }
 
     public void act()
@@ -62,6 +66,10 @@ public class Game extends World
         if (Greenfoot.mouseClicked(null))
         {
             removeObject(instructions);
+        }
+        if (Greenfoot.mouseClicked(trash))
+        {
+            drink.reset();
         }
     }
 
@@ -115,4 +123,5 @@ public class Game extends World
     {
         return customer.getSatisfied();
     }
+    
 }
