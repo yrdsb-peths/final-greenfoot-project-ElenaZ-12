@@ -11,10 +11,12 @@ public class Customer extends Actor
     boolean swap1 = false;
     boolean swap2 = false;
     boolean satisfied = false;
+    boolean makeMoney = false;
     String wantedDrink = "waterfruitstea";
     String wantedDrink1 = "waterteafruits";
     public void act()
     {
+        makeMoney = false;
         arrival();
         satisfiedDrink();
         leave();
@@ -47,11 +49,10 @@ public class Customer extends Actor
         Game world = (Game) getWorld();
         String[] drink = world.getDrink();
         String madeDrink = drink[0]+drink[1]+drink[2];
-        //world.showText(madeDrink, 300, 200);
-        //world.showText(wantedDrink, 300, 250);
         if (wantedDrink.equals(madeDrink)||wantedDrink1.equals(madeDrink))
         {
             satisfied = true;
+            makeMoney = true;
         }
     }
     
@@ -59,6 +60,7 @@ public class Customer extends Actor
     {
         if (satisfied)
         {
+            Game world = (Game) getWorld();
             if (!swap2)
             {
                 setImage ("images/blackcat3.png");
@@ -66,7 +68,6 @@ public class Customer extends Actor
                 swap2 = true;
             }
             move();
-            Game world = (Game) getWorld();
             if(getX()>world.getWidth()+500)
             {
                 world.removeObject(this);
@@ -78,5 +79,10 @@ public class Customer extends Actor
     public boolean getSatisfied()
     {
         return satisfied;
+    }
+    
+    public boolean getMakeMoney()
+    {
+        return makeMoney;
     }
 }

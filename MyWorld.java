@@ -33,7 +33,7 @@ public class MyWorld extends World
             //nextWorld.parent_node=(World)this;
             Greenfoot.setWorld(nextWorld);
         }
-        //music.playLoop();
+        music.playLoop();
     }
     
     /**

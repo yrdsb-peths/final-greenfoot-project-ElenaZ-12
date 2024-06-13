@@ -18,6 +18,8 @@ public class Game extends World
     Veggie veggie;
     Customer customer;
     Label instructions;
+    Label moneyMade;
+    int money = 0;
     Trash trash;
     /**
      * Constructor for objects of class Game.
@@ -57,6 +59,9 @@ public class Game extends World
         instructions = new Label("Make drinks for your customers!\nAdd 1 base and 2 condiments\nto complete a drink!", 40);
         addObject(instructions,315,230);
         
+        moneyMade = new Label ("$"+money, 40);
+        addObject(moneyMade,50,30);
+        
         trash = new Trash();
         addObject(trash,565,35);
     }
@@ -70,6 +75,13 @@ public class Game extends World
         if (Greenfoot.mouseClicked(trash))
         {
             drink.reset();
+        }
+        if (customer.getMakeMoney())
+        {
+            money+=5;
+            removeObject(moneyMade);
+            moneyMade = new Label ("$"+money, 40);
+            addObject(moneyMade,50,30);
         }
     }
 
