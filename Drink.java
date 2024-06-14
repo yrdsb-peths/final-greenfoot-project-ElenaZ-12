@@ -27,8 +27,6 @@ public class Drink extends Actor
             reset();
         }
         world.showText(numIngredients+"/3",260, 340);
-        world.showText("tries "+tries, 300, 200);
-        //world.showText(ingredients[0]+ingredients[1]+ingredients[2], 300, 150);
     }
     
     public void addBase()

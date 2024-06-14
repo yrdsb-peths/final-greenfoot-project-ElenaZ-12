@@ -19,8 +19,12 @@ public class Game extends World
     Customer customer;
     Label instructions;
     Label moneyMade;
-    int money = 0;
     Trash trash;
+    int money = 0;
+    int numCustomers = 0;
+    int days = 0;
+    Label week;
+    String dayWeek = "Monday";
     /**
      * Constructor for objects of class Game.
      * 
@@ -92,14 +96,60 @@ public class Game extends World
             moneyMade = new Label ("$"+money, 40);
             addObject(moneyMade,50,30);
         }
+        dayOfWeek();
     }
 
+    public void dayOfWeek()
+    {
+        if (days == 0)
+        {
+            dayWeek = "Monday";
+        }
+        else if (days == 1)
+        {
+            dayWeek = "Tuesday";
+        }
+        else if (days == 2)
+        {
+            dayWeek = "Wednesday";
+        }
+        else if (days == 3)
+        {
+            dayWeek = "Thursday";
+        }
+        else if (days == 4)
+        {
+            dayWeek = "Friday";
+        }
+        else if (days == 5)
+        {
+            dayWeek = "Saturday";
+        }
+        else if (days == 6)
+        {
+            dayWeek = "Sunday";
+        }
+    }
+    
     public void newCustomer()
     {
+        updateDay();
         customer = new Customer();
         addObject(customer,0,77);
+        numCustomers++;
+        if (numCustomers%3 == 0)
+        {
+            days = (days+1)%7;
+        }
     }
-
+    
+    public void updateDay()
+    {
+        removeObject(week);
+        week = new Label (dayWeek, 50);
+        addObject(week,270,380);
+    }
+    
     public Object getMilk()
     {
         return milk;

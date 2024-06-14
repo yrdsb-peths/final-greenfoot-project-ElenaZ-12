@@ -13,16 +13,14 @@ public class Customer extends Actor
     boolean satisfied = false;
     boolean makeMoney = false;
     boolean changeCat = false;
-    //boolean firstTry = false;
     String wantedDrink;
     String wantedDrink1;
     String cat;
     int random = Greenfoot.getRandomNumber(5);
     public void act()
     {
-        randomCat();
-        //firstTry = false;
         makeMoney = false;
+        randomCat();
         arrival();
         satisfiedDrink();
         leave();
