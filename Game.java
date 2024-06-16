@@ -129,6 +129,10 @@ public class Game extends World
         {
             dayWeek = "Sunday";
         }
+        else if (days == 7)
+        {
+            endGame();
+        }
     }
     
     public void newCustomer()
@@ -139,7 +143,7 @@ public class Game extends World
         numCustomers++;
         if (numCustomers%3 == 0)
         {
-            days = (days+1)%7;
+            days ++;
         }
     }
     
@@ -148,6 +152,20 @@ public class Game extends World
         removeObject(week);
         week = new Label (dayWeek, 50);
         addObject(week,270,380);
+    }
+    
+    public void endGame()
+    {
+        if (money >= 150)
+        {
+            GoodEnd nextWorld = new GoodEnd();
+            Greenfoot.setWorld(nextWorld);
+        }
+        else
+        {
+            BadEnd nextWorld = new BadEnd();
+            Greenfoot.setWorld(nextWorld);
+        }
     }
     
     public Object getMilk()

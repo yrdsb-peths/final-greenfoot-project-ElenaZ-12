@@ -14,6 +14,8 @@ public class Drink extends Actor
     int condimentCount = 2;
     int numIngredients = 0;
     int tries = 0;
+    GreenfootSound baseSfx = new GreenfootSound ("sounds/base_sfx.mp3");
+    GreenfootSound conSfx = new GreenfootSound ("sounds/condiment_sfx.mp3");
     public void act()
     {
         Game world = (Game) getWorld();
@@ -38,12 +40,14 @@ public class Drink extends Actor
         {
             if (Greenfoot.mouseClicked(milk))
             {
+                baseSfx.play();
                 ingredients[0] = "milk";
                 numIngredients++;
                 addedBase = true;
             }
             else if (Greenfoot.mouseClicked(water))
             {
+                baseSfx.play();
                 ingredients[0] = "water";
                 numIngredients++;
                 addedBase = true;
@@ -55,7 +59,7 @@ public class Drink extends Actor
     {
         Game world = (Game) getWorld();
         Object fruit = world.getFruit();
-        Object chocolate = world.getChocolate();
+        Object choco = world.getChocolate();
         Object tea = world.getTea();
         Object chili = world.getChili();
         Object veggie = world.getVeggie();
@@ -65,30 +69,40 @@ public class Drink extends Actor
             {
                 if (Greenfoot.mouseClicked(fruit))
                 {
+                    conSfx.stop();
+                    conSfx.play();
                     ingredients[1] = "fruits";
                     numIngredients++;
                     condimentCount--;
                 }
-                else if (Greenfoot.mouseClicked(chocolate))
+                else if (Greenfoot.mouseClicked(choco))
                 {
+                    conSfx.stop();
+                    conSfx.play();
                     ingredients[1] = "choco";
                     numIngredients++;
                     condimentCount--;
                 }
                 else if (Greenfoot.mouseClicked(tea))
                 {
+                    conSfx.stop();
+                    conSfx.play();
                     ingredients[1] = "tea";
                     numIngredients++;
                     condimentCount--;
                 }
                 else if (Greenfoot.mouseClicked(chili))
                 {
+                    conSfx.stop();
+                    conSfx.play();
                     ingredients[1] = "chili";
                     numIngredients++;
                     condimentCount--;
                 }
                 else if (Greenfoot.mouseClicked(veggie))
                 {
+                    conSfx.stop();
+                    conSfx.play();
                     ingredients[1] = "veggie";
                     numIngredients++;
                     condimentCount--;
@@ -98,13 +112,17 @@ public class Drink extends Actor
             {
                 if (Greenfoot.mouseClicked(fruit))
                 {
+                    conSfx.stop();
+                    conSfx.play();
                     ingredients[2] = "fruits";
                     numIngredients++;
                     condimentCount--;
                     tries++;
                 }
-                else if (Greenfoot.mouseClicked(chocolate))
+                else if (Greenfoot.mouseClicked(choco))
                 {
+                    conSfx.stop();
+                    conSfx.play();
                     ingredients[2] = "choco";
                     numIngredients++;
                     condimentCount--;
@@ -112,6 +130,8 @@ public class Drink extends Actor
                 }
                 else if (Greenfoot.mouseClicked(tea))
                 {
+                    conSfx.stop();
+                    conSfx.play();
                     ingredients[2] = "tea";
                     numIngredients++;
                     condimentCount--;
@@ -119,6 +139,8 @@ public class Drink extends Actor
                 }
                 else if (Greenfoot.mouseClicked(chili))
                 {
+                    conSfx.stop();
+                    conSfx.play();
                     ingredients[2] = "chili";
                     numIngredients++;
                     condimentCount--;
@@ -126,6 +148,8 @@ public class Drink extends Actor
                 }
                 else if (Greenfoot.mouseClicked(veggie))
                 {
+                    conSfx.stop();
+                    conSfx.play();
                     ingredients[2] = "veggie";
                     numIngredients++;
                     condimentCount--;

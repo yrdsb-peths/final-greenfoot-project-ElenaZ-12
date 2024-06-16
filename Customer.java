@@ -17,6 +17,11 @@ public class Customer extends Actor
     String wantedDrink1;
     String cat;
     int random = Greenfoot.getRandomNumber(5);
+    GreenfootSound blackCatSfx = new GreenfootSound ("sounds/blackcat_sfx.mp3");
+    GreenfootSound whiteCatSfx = new GreenfootSound ("sounds/whitecat_sfx.mp3");
+    GreenfootSound breadyCatSfx = new GreenfootSound ("sounds/breadycat_sfx.mp3");
+    GreenfootSound tortCatSfx = new GreenfootSound ("sounds/tortcat_sfx1.mp3");
+    GreenfootSound momoCatSfx = new GreenfootSound ("sounds/momocat_sfx.mp3");
     public void act()
     {
         makeMoney = false;
@@ -53,8 +58,6 @@ public class Customer extends Actor
         Game world = (Game) getWorld();
         String[] drink = world.getDrink();
         String madeDrink = drink[0]+drink[1]+drink[2];
-        //world.showText(madeDrink,300,200);
-        //world.showText(wantedDrink,300,250);
         if (wantedDrink.equals(madeDrink)||wantedDrink1.equals(madeDrink))
         {
             satisfied = true;
@@ -69,6 +72,7 @@ public class Customer extends Actor
             Game world = (Game) getWorld();
             if (!swap2)
             {
+                happySound();
                 setImage ("images/"+cat+"3.png");
                 setLocation(221, getY());
                 swap2 = true;
@@ -118,6 +122,30 @@ public class Customer extends Actor
         {
             setImage("images/"+cat+"1.png");
             changeCat = true;
+        }
+    }
+    
+    public void happySound()
+    {
+        if (cat.equals("blackcat"))
+        {
+            blackCatSfx.play();
+        }
+        else if (cat.equals("whitecat"))
+        {
+            whiteCatSfx.play();
+        }
+        else if (cat.equals("breadycat"))
+        {
+            breadyCatSfx.play();
+        }
+        else if (cat.equals("tortcat"))
+        {
+            tortCatSfx.play();
+        }
+        else if (cat.equals("momocat"))
+        {
+            momoCatSfx.play();
         }
     }
     
