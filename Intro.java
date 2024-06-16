@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Intro extends World
 {
+    MyWorld nextmyWorld;
     int textSize = 40;
     GreenfootSound mouseClick = new GreenfootSound ("sounds/mouseclick.mp3");
     /**
@@ -34,6 +35,7 @@ public class Intro extends World
             mouseClick.stop();
             mouseClick.play();
             Game currentWorld = new Game();
+            currentWorld.nextmyWorld=nextmyWorld;
             Greenfoot.setWorld(currentWorld);
         }
     }
@@ -44,6 +46,6 @@ public class Intro extends World
     private void prepare()
     {
         Label label = new Label("<Click anywhere to proceed>", 30);
-        addObject(label,300,140);
+        addObject(label,300,170);
     }
 }

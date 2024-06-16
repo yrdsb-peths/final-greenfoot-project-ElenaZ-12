@@ -24,6 +24,7 @@ public class Game extends World
     int numCustomers = 0;
     int days = 0;
     Label week;
+    MyWorld nextmyWorld;
     String dayWeek = "Monday";
     GreenfootSound mouseClick = new GreenfootSound ("sounds/mouseclick.mp3");
     /**
@@ -132,15 +133,16 @@ public class Game extends World
         {
             dayWeek = "Sunday";
         }
-        else if (days == 7)
-        {
-            endGame();
-        }
+        
     }
     
     public void newCustomer()
     {
         updateDay();
+        if (days == 7)
+        {
+            endGame();
+        }
         customer = new Customer();
         addObject(customer,0,77);
         numCustomers++;
@@ -162,11 +164,13 @@ public class Game extends World
         if (money >= 200)
         {
             GoodEnd nextWorld = new GoodEnd();
+            nextWorld.nextmyWorld=nextmyWorld;
             Greenfoot.setWorld(nextWorld);
         }
         else
         {
             BadEnd nextWorld = new BadEnd();
+            nextWorld.nextmyWorld=nextmyWorld;
             Greenfoot.setWorld(nextWorld);
         }
     }
