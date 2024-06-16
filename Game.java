@@ -25,6 +25,7 @@ public class Game extends World
     int days = 0;
     Label week;
     String dayWeek = "Monday";
+    GreenfootSound mouseClick = new GreenfootSound ("sounds/mouseclick.mp3");
     /**
      * Constructor for objects of class Game.
      * 
@@ -74,6 +75,8 @@ public class Game extends World
     {
         if (Greenfoot.mouseClicked(null))
         {
+            mouseClick.stop();
+            mouseClick.play();
             removeObject(instructions);
         }
         if (Greenfoot.mouseClicked(trash))
@@ -156,7 +159,7 @@ public class Game extends World
     
     public void endGame()
     {
-        if (money >= 150)
+        if (money >= 200)
         {
             GoodEnd nextWorld = new GoodEnd();
             Greenfoot.setWorld(nextWorld);

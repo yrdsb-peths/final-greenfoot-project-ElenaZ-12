@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MyWorld extends World
 {
     GreenfootSound music = new GreenfootSound ("sounds/play_bgm.mp3");
+    GreenfootSound mouseClick = new GreenfootSound ("sounds/mouseclick.mp3");
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -25,13 +26,20 @@ public class MyWorld extends World
      */
     public void act()
     {
-        // Start the game if user presses space bar
         if (Greenfoot.isKeyDown("space"))
         {
+            mouseClick.stop();
+            mouseClick.play();
+            
             //music.stop();
             Intro nextWorld = new Intro();
             //nextWorld.parent_node=(World)this;
             Greenfoot.setWorld(nextWorld);
+        }
+        if (Greenfoot.mouseClicked(null))
+        {
+            mouseClick.stop();
+            mouseClick.play();
         }
         music.playLoop();
     }

@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Intro extends World
 {
     int textSize = 40;
+    GreenfootSound mouseClick = new GreenfootSound ("sounds/mouseclick.mp3");
     /**
      * Constructor for objects of class Intro.
      * 
@@ -18,11 +19,11 @@ public class Intro extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
 
-        Label story1 = new Label("You¡¯re suffering from kitty cancer,\nmake 150 dollars by the end of the \nweek to pay for your medical fee!", textSize);
+        Label story1 = new Label("You¡¯re suffering from kitty cancer,\nmake 200 dollars by the end of the \nweek to pay for your medical fee!", textSize);
         addObject(story1,300,70);
 
         Cancer cancer = new Cancer();
-        addObject(cancer,300,280);
+        addObject(cancer,200,320);
         prepare();
     }
 
@@ -30,6 +31,8 @@ public class Intro extends World
     {
         if (Greenfoot.mouseClicked(null))
         {
+            mouseClick.stop();
+            mouseClick.play();
             Game currentWorld = new Game();
             Greenfoot.setWorld(currentWorld);
         }

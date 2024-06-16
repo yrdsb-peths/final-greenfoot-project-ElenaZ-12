@@ -17,7 +17,7 @@ public class Customer extends Actor
     String wantedDrink1;
     String cat;
     int random = Greenfoot.getRandomNumber(5);
-    GreenfootSound blackCatSfx = new GreenfootSound ("sounds/blackcat_sfx.mp3");
+    GreenfootSound blackCatSfx = new GreenfootSound ("sounds/blackcat_sfx1.mp3");
     GreenfootSound whiteCatSfx = new GreenfootSound ("sounds/whitecat_sfx.mp3");
     GreenfootSound breadyCatSfx = new GreenfootSound ("sounds/breadycat_sfx.mp3");
     GreenfootSound tortCatSfx = new GreenfootSound ("sounds/tortcat_sfx1.mp3");

@@ -14,6 +14,19 @@ public class Cancer extends Actor
      */
     public void act()
     {
-        // Add your action code here.
+        if (Greenfoot.isKeyDown("left"))
+        {
+            if (getX()>=100)
+            {
+                setLocation(getX()-5, getY());
+            }
+        }
+        else if (Greenfoot.isKeyDown("right"))
+        {
+            if (getX()<=500)
+            {
+                setLocation(getX()+5, getY());
+            }
+        }
     }
 }
