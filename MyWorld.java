@@ -22,7 +22,7 @@ public class MyWorld extends World
     }
     
     /**
-     * The main world act loop
+     * The main world act loop; plays music and changes world if space is pressed
      */
     public void act()
     {
@@ -30,11 +30,8 @@ public class MyWorld extends World
         {
             mouseClick.stop();
             mouseClick.play();
-            
-            //music.stop();
             Intro nextWorld = new Intro();
-            nextWorld.nextmyWorld=this;
-            //nextWorld.parent_node=(World)this;
+            nextWorld.nextMyWorld=this;
             Greenfoot.setWorld(nextWorld);
         }
         if (Greenfoot.mouseClicked(null))
@@ -46,8 +43,7 @@ public class MyWorld extends World
     }
     
     /**
-     * Prepare the world for the start of the program.
-     * That is: create the initial objects and add them to the world.
+     * Instantizes objects
      */
     private void prepare()
     {

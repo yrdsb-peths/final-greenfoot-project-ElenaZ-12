@@ -10,7 +10,10 @@ public class Cat extends Actor
 {
     GreenfootImage[] idle = new GreenfootImage[4];
     SimpleTimer animationTimer = new SimpleTimer();
-    
+    int imageIndex = 0;
+    /**
+     * Loads images and sets timer and intial image
+     */
     public Cat()
     {
         for (int i = 0; i<idle.length; i++)
@@ -27,15 +30,16 @@ public class Cat extends Actor
     }
     
     /**
-     * Act - do whatever the Cat wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Animates the cat
      */
     public void act()
     {
         animateCat();
     }
-    
-    int imageIndex = 0;
+
+    /**
+     * Switches the image to make animation
+     */
     public void animateCat()
     {
         if (animationTimer.millisElapsed()<150)

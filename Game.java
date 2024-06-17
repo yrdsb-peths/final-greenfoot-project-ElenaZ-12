@@ -24,12 +24,11 @@ public class Game extends World
     int numCustomers = 0;
     int days = 0;
     Label week;
-    MyWorld nextmyWorld;
+    MyWorld nextMyWorld;
     String dayWeek = "Monday";
     GreenfootSound mouseClick = new GreenfootSound ("sounds/mouseclick.mp3");
     /**
-     * Constructor for objects of class Game.
-     * 
+     * Makes objects and add them to world
      */
     public Game()
     {    
@@ -72,6 +71,9 @@ public class Game extends World
         addObject(trash,565,35);
     }
 
+    /**
+     * Main game loop; changes day and score and checks for mouse clicks
+     */
     public void act()
     {
         if (Greenfoot.mouseClicked(null))
@@ -103,6 +105,9 @@ public class Game extends World
         dayOfWeek();
     }
 
+    /**
+     * Determines the day of the week based on days passed
+     */
     public void dayOfWeek()
     {
         if (days == 0)
@@ -133,9 +138,11 @@ public class Game extends World
         {
             dayWeek = "Sunday";
         }
-        
     }
     
+    /**
+     * Makes a new customer and updates day and check for game over
+     */
     public void newCustomer()
     {
         updateDay();
@@ -152,6 +159,9 @@ public class Game extends World
         }
     }
     
+    /**
+     * Updates the text/label that shows the day of the week
+     */
     public void updateDay()
     {
         removeObject(week);
@@ -159,18 +169,21 @@ public class Game extends World
         addObject(week,270,380);
     }
     
+    /**
+     * Switches to one of the ending worlds based on the money made
+     */
     public void endGame()
     {
         if (money >= 200)
         {
             GoodEnd nextWorld = new GoodEnd();
-            nextWorld.nextmyWorld=nextmyWorld;
+            nextWorld.nextMyWorld=nextMyWorld;
             Greenfoot.setWorld(nextWorld);
         }
         else
         {
             BadEnd nextWorld = new BadEnd();
-            nextWorld.nextmyWorld=nextmyWorld;
+            nextWorld.nextMyWorld=nextMyWorld;
             Greenfoot.setWorld(nextWorld);
         }
     }

@@ -16,6 +16,10 @@ public class Drink extends Actor
     int tries = 0;
     GreenfootSound baseSfx = new GreenfootSound ("sounds/base_sfx.mp3");
     GreenfootSound conSfx = new GreenfootSound ("sounds/condiment_sfx.mp3");
+    
+    /**
+     * Makes the drinks
+     */
     public void act()
     {
         Game world = (Game) getWorld();
@@ -31,6 +35,9 @@ public class Drink extends Actor
         world.showText(numIngredients+"/3",260, 340);
     }
     
+    /**
+     * Checks if clicked on base and add it to the array
+     */
     public void addBase()
     {
         Game world = (Game) getWorld();
@@ -55,6 +62,9 @@ public class Drink extends Actor
         }
     }
     
+    /**
+     * Checks if clicked on a condiment and add it to the array (limited to 2)
+     */
     public void addCondiment()
     {
         Game world = (Game) getWorld();

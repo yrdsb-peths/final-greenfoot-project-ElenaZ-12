@@ -22,6 +22,10 @@ public class Customer extends Actor
     GreenfootSound breadyCatSfx = new GreenfootSound ("sounds/breadycat_sfx.mp3");
     GreenfootSound tortCatSfx = new GreenfootSound ("sounds/tortcat_sfx1.mp3");
     GreenfootSound momoCatSfx = new GreenfootSound ("sounds/momocat_sfx.mp3");
+    
+    /**
+     * Makes the customer function
+     */
     public void act()
     {
         makeMoney = false;
@@ -31,11 +35,17 @@ public class Customer extends Actor
         leave();
     }
     
+    /**
+     * Moves the customer to the right
+     */
     public void move()
     {
         setLocation(getX()+5, getY());
     }
     
+    /**
+     * Moves the customer to the waiting spot and switches its image
+     */
     public void arrival()
     {
         if (getX()<=200)
@@ -53,6 +63,9 @@ public class Customer extends Actor
         }
     }
     
+    /**
+     * Checks if the drink made equals the drink wanted
+     */
     public void satisfiedDrink()
     {
         Game world = (Game) getWorld();
@@ -65,6 +78,9 @@ public class Customer extends Actor
         }
     }
     
+    /**
+     * Makes the customer leave if drink made is correct and spawn a new customer
+     */
     public void leave()
     {
         if (satisfied)
@@ -86,6 +102,9 @@ public class Customer extends Actor
         }
     }
     
+    /**
+     * Randomizes which cat will be the customer and changes the image
+     */
     public void randomCat()
     {
         if (random == 0)
@@ -125,6 +144,9 @@ public class Customer extends Actor
         }
     }
     
+    /**
+     * Plays the satisfied sound effect for each cat
+     */
     public void happySound()
     {
         if (cat.equals("blackcat"))
